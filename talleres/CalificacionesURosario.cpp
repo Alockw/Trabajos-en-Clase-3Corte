@@ -1,4 +1,4 @@
-//punto 2
+// punto 2
 #include <iostream>
 #include <map>
 #include <string>
@@ -8,32 +8,43 @@ using namespace std;
 map<string, map<string, double>> notasEstudiantes;
 
 // Función para registrar una nota
-void registrarNota(const string& estudiante, const string& asignatura, double nota) {
+void registrarNota(const string &estudiante, const string &asignatura, double nota)
+{
     notasEstudiantes.insert({estudiante, {{asignatura, nota}}});
 }
 
 // Función para mostrar la nota de un estudiante en una asignatura específica
-void mostrarNota(const string& estudiante, const string& asignatura) {
+void mostrarNota(const string &estudiante, const string &asignatura)
+{
     auto itEstudiante = notasEstudiantes.find(estudiante);
-    if (itEstudiante != notasEstudiantes.end()) {
+    if (itEstudiante != notasEstudiantes.end())
+    {
         auto itAsignatura = itEstudiante->second.find(asignatura);
-        if (itAsignatura != itEstudiante->second.end()) {
+        if (itAsignatura != itEstudiante->second.end())
+        {
             cout << "La nota de " << estudiante << " en " << asignatura << " es: " << itAsignatura->second << endl;
-        } else {
+        }
+        else
+        {
             cout << "No se encontró la nota para el estudiante " << estudiante << " en la asignatura " << asignatura << endl;
         }
-    } else {
+    }
+    else
+    {
         cout << "No se encontró el estudiante " << estudiante << endl;
     }
 }
 
 // Función para calcular el promedio de notas de un estudiante en todas las asignaturas
-double calcularPromedioEstudiante(const string& estudiante) {
+double calcularPromedioEstudiante(const string &estudiante)
+{
     double suma = 0.0;
     int contador = 0;
     auto itEstudiante = notasEstudiantes.find(estudiante);
-    if (itEstudiante != notasEstudiantes.end()) {
-        for (const auto& asignaturaNota : itEstudiante->second) {
+    if (itEstudiante != notasEstudiantes.end())
+    {
+        for (const auto &asignaturaNota : itEstudiante->second)
+        {
             suma += asignaturaNota.second;
             contador++;
         }
@@ -42,12 +53,15 @@ double calcularPromedioEstudiante(const string& estudiante) {
 }
 
 // Función para calcular el promedio de notas de una asignatura para todos los estudiantes
-double calcularPromedioAsignatura(const string& asignatura) {
+double calcularPromedioAsignatura(const string &asignatura)
+{
     double suma = 0.0;
     int contador = 0;
-    for (const auto& estudianteNotas : notasEstudiantes) {
+    for (const auto &estudianteNotas : notasEstudiantes)
+    {
         auto itAsignatura = estudianteNotas.second.find(asignatura);
-        if (itAsignatura != estudianteNotas.second.end()) {
+        if (itAsignatura != estudianteNotas.second.end())
+        {
             suma += itAsignatura->second;
             contador++;
         }
@@ -55,7 +69,8 @@ double calcularPromedioAsignatura(const string& asignatura) {
     return contador > 0 ? suma / contador : 0.0;
 }
 
-int main() {
+int main()
+{
     // Ejemplo de uso
     registrarNota("Juan", "Matemáticas", 8.5);
     registrarNota("Juan", "Física", 7.0);

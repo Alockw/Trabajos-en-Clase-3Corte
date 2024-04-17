@@ -144,7 +144,7 @@ int main()
 
     // UNIÓN
 
-    set<int> unionConjuntos= conjuntoA;
+    set<int> unionConjuntos = conjuntoA;
     unionConjuntos.insert(conjuntoB.begin(), conjuntoB.end());
     cout << "Unión: ";
     for (int elemento : unionConjuntos)
@@ -154,12 +154,12 @@ int main()
 
     // Diferencia conjunto A-conjunto B
     set<int> diferencia;
-    set_difference(conjuntoA.begin(),conjuntoA.end(),conjuntoB.begin(),conjuntoB.end(), inserter(diferencia,diferencia.begin()));
-// imprimir conjunto de la diferencia
-    for (auto it = diferencia.begin(); it != diferencia.end(); ++it) {
+    set_difference(conjuntoA.begin(), conjuntoA.end(), conjuntoB.begin(), conjuntoB.end(), inserter(diferencia, diferencia.begin()));
+    // imprimir conjunto de la diferencia
+    for (auto it = diferencia.begin(); it != diferencia.end(); ++it)
+    {
         cout << *it << " ";
     }
 
-    
     return 0;
 }

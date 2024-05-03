@@ -18,7 +18,7 @@ int main() {
         Video nuevoVideo;
         cout << "Ingresa el nombre del video: ";
         getline(cin, nuevoVideo.nombre);
-        cout << "Ingresa la duración en minutos del video: ";
+        cout << "Ingresa la duracion en minutos del video: ";
         cin >> nuevoVideo.duracionMinutos;
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -32,13 +32,14 @@ int main() {
     } while (respuesta == 's' || respuesta == 'S');
 
     // Mostrar los videos en la pila
-    cout << "\nVideos en la lista de reproducción:\n";
+    cout << "\nVideos en la lista de reproduccion:\n";
     while (!pilaVideos.empty()) {
         Video videoCima = pilaVideos.top();
         cout << "Nombre: " << videoCima.nombre << "\n";
-        cout << "Duración: " << videoCima.duracionMinutos << " minutos\n\n";
+        cout << "Duracion: " << videoCima.duracionMinutos << " minutos\n\n";
         pilaVideos.pop();
     }
 
     return 0;
 }
+//es una lista ya que el ultimo video que se agrega es el que sale de primeras 
